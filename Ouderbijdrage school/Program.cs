@@ -42,18 +42,54 @@ namespace Ouderbijdrage_school
             bool own;
 
             //////////////////////////////////////////////////////////////////////////////
-            
-            //invullen van gegevens
-            Console.WriteLine("Date of filling in form");
-            form = Convert.ToDateTime(Console.ReadLine());
-            Console.WriteLine("Do you live on your own?(true or false)");
 
-            own = Convert.ToBoolean(Console.ReadLine());
+            //invullen van gegevens
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Date of filling in form");
+                    form = Convert.ToDateTime(Console.ReadLine());
+                    break;
+                }
+                catch (Exception)
+                {
+
+                    Console.WriteLine("Invalid. Try again.");
+
+                }
+            }
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Do you live on your own?(true or false)");
+                    own = Convert.ToBoolean(Console.ReadLine());
+                    break;
+                }
+                catch (Exception)
+                {
+
+                    Console.WriteLine("Invalid. Try again.");
+                }
+            }
             TotalCost += Basic;
             while (more == true)
             {
-                Console.WriteLine("birth date");
-                child = Convert.ToDateTime(Console.ReadLine());
+                while (true)
+                {
+                    try
+                    {
+                        Console.WriteLine("birth date");
+                        child = Convert.ToDateTime(Console.ReadLine());
+                        break;
+                    }
+                    catch (Exception)
+                    {
+
+                        Console.WriteLine("Invalid. Try again.");
+                    }
+                }
                 //math
                 double VF = (form - child).TotalDays;
                 Console.WriteLine("Your child is currently " + VF + " Days old.");
@@ -68,8 +104,19 @@ namespace Ouderbijdrage_school
                     CurrentY++;
                 }
                 ///////////////////////////////////////////////////////////////////////////
-                Console.WriteLine("Do you have another child?(true or false)");
-                more = Convert.ToBoolean(Console.ReadLine());
+                while (true)
+                {
+                    try
+                    {
+                        Console.WriteLine("Do you have another child?(true or false)");
+                        more = Convert.ToBoolean(Console.ReadLine());
+                        break;
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Invalid. Try again.");
+                    }
+                }
             }
             if (TotalCost > maxContribution)
             {
